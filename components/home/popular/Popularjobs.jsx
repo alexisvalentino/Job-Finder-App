@@ -8,7 +8,7 @@ import PopularJobCard from '../../common/cards/popular/PopularJobCard';
 
 const Popularjobs = () => {
   const router = useRouter();
-  const isLoading = true;
+  const isLoading = false;
   const error = false;
   
 
@@ -28,7 +28,15 @@ const Popularjobs = () => {
           <Text>Something went wrong</Text>
         ) : (
           <FlatList 
-          
+            data={[1, 2, 3, 4, 5, 6, 7, 8]}
+            renderItem={({ item }) => (
+              <PopularJobCard 
+                item={item}
+              />
+            )}
+            keyExtractor={item => item?.job_id}
+            contentContainerStyle={{ columnGap: SIZES.medium }}
+            horizontal
           />
         )}
       </View>
