@@ -25,7 +25,10 @@ const Welcome = () => {
       <View style={styles.searchContainer}>
         <View style={styles.searchWrapper}>
           <TextInput
-            styles={styles.searchInput}
+            style={styles.searchInput}
+            value=""
+            onChange={() => {}}
+            placeholder="What are you looking for?"
           />
         </View>
       </View>
