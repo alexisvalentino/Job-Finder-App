@@ -27,10 +27,24 @@ const useFetch = (endpoint, query) => {
             (options);
 
             setData(response.data.data);
-        } catch (error) {
-
-        } finally {
+            setIsLoading(false);
+        }   catch (error) {
+            SetError(error);
+            alert('There is an error')
+        }   finally {
+            setIsLoading(false);
 
         }
     }
+
+    useEffect(() => {
+        fetchdata();
+    }, []);
+
+    const refetch = () => {
+        setIsLoading(true);
+        fetchData();
+    }
+
+    return { data, isLoading, error, refetch };
 }
